@@ -61,26 +61,26 @@ def index():
 #     return jsonify(company_data)
 
 
-@app.route("/Fast_Food_Sales/<company>")
-def Fast_Food_Sales(company):
-    """Return the Sales data for a given company."""
-    sel = [
-        Fast_Food_Sales.Company,
-        Fast_Food_Sales.Category,
-        Fast_Food_Sales.Total_Units_in_2016, 
-    ]
+# @app.route("/Fast_Food_Sales/<company>")
+# def Fast_Food_Sales(company):
+#     """Return the Sales data for a given company."""
+#     sel = [
+#         Fast_Food_Sales.Company,
+#         Fast_Food_Sales.Category,
+#         Fast_Food_Sales.Total_Units_in_2016, 
+#     ]
 
-    results = db.session.query(*sel).filter(Fast_Food_Sales.Company == company).all()
+#     results = db.session.query(*sel).filter(Fast_Food_Sales.Company == company).all()
 
-    # Create a dictionary entry for each row of company information
-    company_data = {}
-    for result in results:
-        Fast_Food_Sales["Company"] = result[0]
-        Fast_Food_Sales["Category"] = result[1]
-        Fast_Food_Sales["TotalUnitsin2016"] = result[6]
+#     # Create a dictionary entry for each row of company information
+#     company_data = {}
+#     for result in results:
+#         Fast_Food_Sales["Company"] = result[0]
+#         Fast_Food_Sales["Category"] = result[1]
+#         Fast_Food_Sales["TotalUnitsin2016"] = result[6]
 
-    print(company_data)
-    return jsonify(company_data)
+#     print(company_data)
+#     return jsonify(company_data)
 
 if __name__ == "__main__":
     app.run()
