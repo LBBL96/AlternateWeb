@@ -1,10 +1,12 @@
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="assets/css/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Alef|Quantico&amp;display=swap" rel="stylesheet">
   <title>U.S. Fast Food Franchise Analysis - Density</title>
 </head>
@@ -15,7 +17,7 @@
           <h2 style="color:#cf0909">U.S. Fast Food Franchise Density</h>
           <br>
           <br>
-          <a href="/" class="btn-sm btn-dark">Home</a>
+          <a href="../../templates/index.html" class="btn-sm btn-dark">Home</a>
           <a href="Density.html" class="btn-sm btn-dark">Density</a>
           <a href="Facts.html" class="btn-sm btn-dark">Facts</a>
           <a href="Reveal.html" class="btn-sm btn-dark">Credits</a>
@@ -229,6 +231,8 @@ var bothData = [
   }
 ];
 
+console.log(bothData)
+
 var burgerData = [];
 var chickenData = [];
 var ethnicData = [];
@@ -279,7 +283,7 @@ function update(data){
 	//set domain for the x axis
 	xChart.domain(data.map(function(d){ return d.region; }) );
 	//set domain for y axis
-	yChart.domain( [0, d3.max(data, function(d){ return +d.number; })] );
+	yChart.domain([0, d3.max(data, function(d){ return +d.number; })]);
 	
 	//get the width of each bar 
 	var barWidth = width / data.length;
@@ -367,13 +371,11 @@ var yAxis = d3.axisLeft(yChart);
 			});
 
 //add labels
-chart
-	.append("text")
-	.attr("transform", "translate(-35," +  (height+margin.bottom)/2 + ") rotate(-90)")
+chart.append("text")
+	.attr("transform", "translate(-35," +  (height + margin.bottom)/2 + ") rotate(-90)")
 	.text("Number of Restaurants");
 		
-chart
-	.append("text")
+chart.append("text")
 	.attr("transform", "translate(" + (width/2) + "," + (height + margin.bottom - 5) + ")")
 	.text("Region");
 
@@ -381,20 +383,7 @@ chart
 update(bothData);
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-          
-          
+                  
       </div>
          
       <br>
